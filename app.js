@@ -1,3 +1,9 @@
+//global variables
+let playerWins=0, computerWins=0;
+
+
+//functions
+
 function computerPlay(){
 
     let computerAction;
@@ -36,12 +42,13 @@ if((playerSelection === 'rock' && computerSelection === 'rock') ||
     (playerSelection === 'paper' && computerSelection === 'scissors')||
     (playerSelection === 'scissors' && computerSelection === 'rock')){
         console.log(`You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`);
-    
+        computerWins++
     }
     else if((playerSelection === 'rock' && computerSelection === 'scissors')||
     (playerSelection === 'paper' && computerSelection === 'rock')||
     (playerSelection === 'scissors' && computerSelection === 'paper')){
         console.log(`You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)} `)
+        playerWins++
     }else console.log('Error, something went wrong.');
 
 
@@ -56,5 +63,18 @@ function game(){
     }
 }
 
+function score(){
+    if(playerWins > computerWins){
+        console.log("Congrats! You've beaten the computer");
+    }else if(computerWins > playerWins){
+        console.log("You've lost. Computers are superior.");
+    }else{ 
+        console.log("It's a tie!")
+    }
+
+}
+
+//main code
 game();
+score();
 
