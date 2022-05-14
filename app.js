@@ -26,15 +26,15 @@ function computerPlay(){
     switch(randInt){
         case 1: 
             computerAction = 'rock';
-            CPUimg.setAttribute('src','/images/img-rock.png');
+            CPUimg.setAttribute('src','./images/img-rock.png');
             break
         case 2: 
             computerAction = 'paper';
-            CPUimg.setAttribute('src','/images/img-paper.png');
+            CPUimg.setAttribute('src','./images/img-paper.png');
             break
         case 3: 
             computerAction = 'scissors';
-            CPUimg.setAttribute('src','/images/img-scissors.png');
+            CPUimg.setAttribute('src','./images/img-scissors.png');
             break    
     }
 
@@ -48,7 +48,7 @@ function capitalize(string){
 
 //implements rock, paper, scissors logic
 function playRound(playerSelection, computerSelection){
-
+    
 if((playerSelection === 'rock' && computerSelection === 'rock') ||
     (playerSelection === 'scissors' && computerSelection === 'scissors') ||
     (playerSelection === 'paper' && computerSelection === 'paper')){
@@ -66,11 +66,9 @@ if((playerSelection === 'rock' && computerSelection === 'rock') ||
         scoreboard.textContent = `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)} `;
         playerWins++
     }else alert('Error, something went wrong.');
-
-
 }
 
-
+//checks whether player has won and updates scoring
 function updateScoring(){
     scoring.textContent= `${playerWins} - ${computerWins}`;
     if(playerWins === 5){
@@ -81,26 +79,23 @@ function updateScoring(){
         scoreboard.textContent='You lost. You are no match for a machine.';
         allBtns.forEach((button) => button.disabled = true);
     }
-    
 }
 
 //main code
 
-
-
 rock.addEventListener('click', () => {
-    playerImg.setAttribute('src','/images/img-rock.png')
+    playerImg.setAttribute('src','./images/img-rock.png')
     playRound('rock',computerPlay());
     updateScoring();  
 }
 );
 paper.addEventListener('click', () => {
-    playerImg.setAttribute('src','/images/img-paper.png')
+    playerImg.setAttribute('src','./images/img-paper.png')
     playRound('paper',computerPlay());
     updateScoring();
 });
 scissors.addEventListener('click', () => {
-    playerImg.setAttribute('src','/images/img-scissors.png')
+    playerImg.setAttribute('src','./images/img-scissors.png')
     playRound('scissors',computerPlay());
     updateScoring();
 });
